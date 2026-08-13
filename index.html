@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OdontoFlow | Gestão da Clínica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="#" class="brand">
+      <span class="brand-icon">+</span>
+      <span>OdontoFlow</span>
+    </a>
+
+    <nav class="menu">
+      <button class="menu-item active" data-section="agenda">▦ <span>Agenda</span></button>
+      <button class="menu-item" data-section="pacientes">♙ <span>Pacientes</span></button>
+      <button class="menu-item" data-section="financeiro">◫ <span>Financeiro</span></button>
+      <button class="menu-item" data-section="prontuarios">✚ <span>Prontuários</span></button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="paciente.html" target="_blank" class="patient-link">↗ Site do paciente</a>
+      <button class="menu-item">⚙ <span>Configurações</span></button>
+    </div>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <span class="clinic-name">Clínica Sorriso</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn">?</button>
+        <button class="icon-btn">🔔</button>
+        <div class="avatar">VS</div>
+      </div>
+    </header>
+
+    <section id="agenda" class="page active">
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">Visão geral</p>
+          <h1>Agenda</h1>
+          <p class="muted">Organize os atendimentos da sua clínica.</p>
+        </div>
+        <button class="primary-btn" id="newAppointment">+ Novo agendamento</button>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><span>Consultas hoje</span><strong id="todayCount">4</strong><small>Agenda do dia</small></article>
+        <article class="stat-card"><span>Confirmadas</span><strong>3</strong><small>75% das consultas</small></article>
+        <article class="stat-card"><span>Pacientes</span><strong id="patientCount">28</strong><small>Cadastros ativos</small></article>
+        <article class="stat-card"><span>Receita do mês</span><strong>R$ 8.420</strong><small>+12% no período</small></article>
+      </div>
+
+      <div class="agenda-layout">
+        <article class="panel calendar-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Agosto 2026</h2>
+              <p class="muted">Quinta-feira, 13 de agosto</p>
+            </div>
+            <div class="segmented">
+              <button>Dia</button><button class="active">Semana</button><button>Mês</button>
+            </div>
+          </div>
+
+          <div class="calendar">
+            <div class="time-col"></div>
+            <div class="day-head"><span>SEG</span><strong>10</strong></div>
+            <div class="day-head"><span>TER</span><strong>11</strong></div>
+            <div class="day-head"><span>QUA</span><strong>12</strong></div>
+            <div class="day-head today"><span>QUI</span><strong>13</strong></div>
+            <div class="day-head"><span>SEX</span><strong>14</strong></div>
+
+            <div class="time-label">08:00</div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"><div class="appointment blue"><b>08:30</b> Ana Souza<small>Limpeza</small></div></div><div class="slot"></div>
+            <div class="time-label">09:00</div><div class="slot"></div><div class="slot"><div class="appointment green"><b>09:00</b> Carlos Lima<small>Avaliação</small></div></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+            <div class="time-label">10:00</div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"><div class="appointment purple"><b>10:15</b> Marina Alves<small>Ortodontia</small></div></div><div class="slot"></div>
+            <div class="time-label">11:00</div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+            <div class="time-label">12:00</div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+            <div class="time-label">13:00</div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"><div class="appointment orange"><b>13:30</b> João Pedro<small>Restauração</small></div></div><div class="slot"></div>
+            <div class="time-label">14:00</div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+          </div>
+        </article>
+
+        <aside class="panel side-panel">
+          <div class="panel-head"><h2>Hoje</h2><span class="badge">4 consultas</span></div>
+          <div class="today-list">
+            <div class="today-item"><div class="time-box">08:30</div><div><strong>Ana Souza</strong><span>Limpeza · Dra. Camila</span></div><i class="confirmed">Confirmada</i></div>
+            <div class="today-item"><div class="time-box">10:15</div><div><strong>Marina Alves</strong><span>Ortodontia · Dr. André</span></div><i class="waiting">Aguardando</i></div>
+            <div class="today-item"><div class="time-box">13:30</div><div><strong>João Pedro</strong><span>Restauração · Dra. Camila</span></div><i class="confirmed">Confirmada</i></div>
+            <div class="today-item"><div class="time-box">16:00</div><div><strong>Beatriz Melo</strong><span>Avaliação · Dr. André</span></div><i class="confirmed">Confirmada</i></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="pacientes" class="page">
+      <div class="page-heading">
+        <div><p class="eyebrow">Cadastros</p><h1>Pacientes</h1><p class="muted">Consulte e organize os pacientes da clínica.</p></div>
+        <button class="primary-btn" id="newPatient">+ Novo paciente</button>
+      </div>
+      <article class="panel">
+        <div class="table-tools"><input id="patientSearch" placeholder="Buscar por nome, telefone ou CPF..."></div>
+        <div class="table-wrap">
+          <table><thead><tr><th>Paciente</th><th>Telefone</th><th>Última consulta</th><th>Status</th><th></th></tr></thead>
+          <tbody id="patientsTable">
+            <tr><td><b>Ana Souza</b><small>ana@email.com</small></td><td>(82) 99999-1020</td><td>13/08/2026</td><td><span class="status active-status">Ativo</span></td><td>⋮</td></tr>
+            <tr><td><b>Carlos Lima</b><small>carlos@email.com</small></td><td>(82) 98888-4432</td><td>11/08/2026</td><td><span class="status active-status">Ativo</span></td><td>⋮</td></tr>
+            <tr><td><b>Marina Alves</b><small>marina@email.com</small></td><td>(82) 97777-6501</td><td>13/08/2026</td><td><span class="status active-status">Ativo</span></td><td>⋮</td></tr>
+          </tbody></table>
+        </div>
+      </article>
+    </section>
+
+    <section id="financeiro" class="page">
+      <div class="page-heading"><div><p class="eyebrow">Controle</p><h1>Financeiro</h1><p class="muted">Acompanhe entradas, saídas e recebimentos.</p></div><button class="primary-btn">+ Novo lançamento</button></div>
+      <div class="stats-grid">
+        <article class="stat-card"><span>Recebido no mês</span><strong>R$ 8.420</strong><small>Agosto de 2026</small></article>
+        <article class="stat-card"><span>A receber</span><strong>R$ 2.180</strong><small>7 pagamentos</small></article>
+        <article class="stat-card"><span>Despesas</span><strong>R$ 3.240</strong><small>Este mês</small></article>
+        <article class="stat-card"><span>Saldo</span><strong>R$ 5.180</strong><small>Resultado parcial</small></article>
+      </div>
+      <article class="panel"><div class="panel-head"><h2>Movimentações recentes</h2></div>
+        <div class="transaction"><span>✓</span><div><b>Ana Souza — Limpeza</b><small>13/08/2026</small></div><strong>+ R$ 180,00</strong></div>
+        <div class="transaction"><span>✓</span><div><b>João Pedro — Restauração</b><small>13/08/2026</small></div><strong>+ R$ 320,00</strong></div>
+        <div class="transaction"><span>↓</span><div><b>Material odontológico</b><small>12/08/2026</small></div><strong>- R$ 640,00</strong></div>
+      </article>
+    </section>
+
+    <section id="prontuarios" class="page">
+      <div class="page-heading"><div><p class="eyebrow">Clínico</p><h1>Prontuários</h1><p class="muted">Histórico clínico centralizado por paciente.</p></div></div>
+      <div class="records-grid">
+        <article class="panel record-card"><div class="patient-avatar">AS</div><div><h3>Ana Souza</h3><p>Último atendimento: 13/08/2026</p><div class="chips"><span>Odontograma</span><span>Anamnese</span><span>Receitas</span></div></div><button class="secondary-btn">Abrir prontuário</button></article>
+        <article class="panel record-card"><div class="patient-avatar">MA</div><div><h3>Marina Alves</h3><p>Último atendimento: 13/08/2026</p><div class="chips"><span>Ortodontia</span><span>Documentos</span></div></div><button class="secondary-btn">Abrir prontuário</button></article>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="appointmentModal">
+    <div class="modal-card">
+      <button class="close-modal">×</button>
+      <p class="eyebrow">Agenda</p><h2>Novo agendamento</h2>
+      <form id="appointmentForm">
+        <label>Paciente<input required id="appointmentPatient" placeholder="Nome do paciente"></label>
+        <div class="form-row"><label>Data<input required type="date" id="appointmentDate"></label><label>Horário<input required type="time" id="appointmentTime"></label></div>
+        <label>Procedimento<select id="appointmentProcedure"><option>Avaliação</option><option>Limpeza</option><option>Restauração</option><option>Ortodontia</option></select></label>
+        <label>Profissional<select><option>Dra. Camila Rocha</option><option>Dr. André Martins</option></select></label>
+        <button class="primary-btn full" type="submit">Salvar agendamento</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

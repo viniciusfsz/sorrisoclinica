@@ -1,0 +1,12 @@
+const menuItems=document.querySelectorAll(".menu-item[data-section]");const pages=document.querySelectorAll(".page");const sidebar=document.querySelector(".sidebar");menuItems.forEach(btn=>btn.addEventListener("click",()=>{menuItems.forEach(i=>i.classList.remove("active"));btn.classList.add("active");pages.forEach(p=>p.classList.remove("active"));document.getElementById(btn.dataset.section).classList.add("active");sidebar.classList.remove("open")}));document.getElementById("mobileMenu").addEventListener("click",()=>sidebar.classList.toggle("open"));
+
+const modal=document.getElementById("appointmentModal");document.getElementById("newAppointment").addEventListener("click",()=>modal.classList.add("show"));document.querySelector(".close-modal").addEventListener("click",()=>modal.classList.remove("show"));modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
+
+function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2600)}
+
+document.getElementById("appointmentForm").addEventListener("submit",e=>{e.preventDefault();const appointments=JSON.parse(localStorage.getItem("odontoAppointments")||"[]");appointments.push({patient:document.getElementById("appointmentPatient").value,date:document.getElementById("appointmentDate").value,time:document.getElementById("appointmentTime").value,procedure:document.getElementById("appointmentProcedure").value,source:"painel"});localStorage.setItem("odontoAppointments",JSON.stringify(appointments));modal.classList.remove("show");e.target.reset();toast("Agendamento salvo com sucesso.")});
+
+document.getElementById("newPatient").addEventListener("click",()=>toast("No sistema final, este botão abre o cadastro completo do paciente."));
+document.getElementById("patientSearch").addEventListener("input",e=>{const q=e.target.value.toLowerCase();document.querySelectorAll("#patientsTable tr").forEach(row=>row.style.display=row.innerText.toLowerCase().includes(q)?"":"none")});
+
+const patientBookings=JSON.parse(localStorage.getItem("odontoAppointments")||"[]").filter(a=>a.source==="paciente");if(patientBookings.length){document.getElementById("todayCount").textContent=4+patientBookings.length;document.getElementById("patientCount").textContent=28+new Set(patientBookings.map(a=>a.patient)).size}

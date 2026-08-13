@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Sorriso | Agende sua consulta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="patient-body">
+  <header class="patient-header">
+    <a class="brand patient-brand" href="#"><span class="brand-icon">+</span><span>Clínica Sorriso</span></a>
+    <a href="index.html" class="secondary-btn">Área da clínica</a>
+  </header>
+
+  <main class="patient-main">
+    <section class="patient-hero">
+      <span class="patient-pill">Agendamento online</span>
+      <h1>Seu sorriso começa com um horário reservado.</h1>
+      <p>Escolha o serviço, profissional, data e horário. O agendamento leva menos de dois minutos.</p>
+    </section>
+
+    <section class="booking-card">
+      <div class="booking-progress">
+        <div class="progress-step active" data-progress="1"><span>1</span><b>Serviço</b></div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-progress="2"><span>2</span><b>Data</b></div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-progress="3"><span>3</span><b>Seus dados</b></div>
+      </div>
+
+      <form id="bookingForm">
+        <div class="booking-step active" data-step="1">
+          <p class="eyebrow">Etapa 1 de 3</p><h2>O que você precisa?</h2>
+          <div class="service-grid">
+            <label class="service-option"><input type="radio" name="service" value="Avaliação" checked><span class="service-icon">✦</span><b>Avaliação</b><small>Primeira consulta</small></label>
+            <label class="service-option"><input type="radio" name="service" value="Limpeza"><span class="service-icon">◇</span><b>Limpeza</b><small>Profilaxia dental</small></label>
+            <label class="service-option"><input type="radio" name="service" value="Restauração"><span class="service-icon">○</span><b>Restauração</b><small>Tratamento restaurador</small></label>
+            <label class="service-option"><input type="radio" name="service" value="Ortodontia"><span class="service-icon">⌁</span><b>Ortodontia</b><small>Aparelho e acompanhamento</small></label>
+          </div>
+          <label class="field-label">Profissional<select id="bookingDoctor"><option>Dra. Camila Rocha</option><option>Dr. André Martins</option><option>Primeiro disponível</option></select></label>
+          <div class="booking-actions"><span></span><button type="button" class="primary-btn next-step">Continuar</button></div>
+        </div>
+
+        <div class="booking-step" data-step="2">
+          <p class="eyebrow">Etapa 2 de 3</p><h2>Escolha a melhor data</h2>
+          <div class="date-grid">
+            <button type="button" class="date-option active" data-date="17/08/2026"><span>SEG</span><b>17</b><small>AGO</small></button>
+            <button type="button" class="date-option" data-date="18/08/2026"><span>TER</span><b>18</b><small>AGO</small></button>
+            <button type="button" class="date-option" data-date="19/08/2026"><span>QUA</span><b>19</b><small>AGO</small></button>
+            <button type="button" class="date-option" data-date="20/08/2026"><span>QUI</span><b>20</b><small>AGO</small></button>
+            <button type="button" class="date-option" data-date="21/08/2026"><span>SEX</span><b>21</b><small>AGO</small></button>
+          </div>
+          <h3 class="time-title">Horários disponíveis</h3>
+          <div class="time-grid">
+            <button type="button" class="time-option active">08:00</button><button type="button" class="time-option">08:30</button><button type="button" class="time-option">09:30</button><button type="button" class="time-option">10:00</button><button type="button" class="time-option">11:30</button><button type="button" class="time-option">14:00</button><button type="button" class="time-option">15:30</button><button type="button" class="time-option">16:00</button>
+          </div>
+          <div class="booking-actions"><button type="button" class="secondary-btn prev-step">Voltar</button><button type="button" class="primary-btn next-step">Continuar</button></div>
+        </div>
+
+        <div class="booking-step" data-step="3">
+          <p class="eyebrow">Etapa 3 de 3</p><h2>Agora, seus dados</h2>
+          <div class="patient-form">
+            <label>Nome completo<input required id="patientName" placeholder="Seu nome completo"></label>
+            <div class="form-row"><label>CPF<input required id="patientCpf" placeholder="000.000.000-00"></label><label>Data de nascimento<input required type="date" id="patientBirth"></label></div>
+            <div class="form-row"><label>WhatsApp<input required id="patientPhone" placeholder="(82) 99999-9999"></label><label>E-mail<input type="email" id="patientEmail" placeholder="voce@email.com"></label></div>
+          </div>
+          <div class="booking-summary" id="bookingSummary"></div>
+          <div class="booking-actions"><button type="button" class="secondary-btn prev-step">Voltar</button><button type="submit" class="primary-btn">Confirmar agendamento</button></div>
+        </div>
+
+        <div class="booking-success" id="bookingSuccess">
+          <div class="success-icon">✓</div>
+          <h2>Consulta agendada!</h2>
+          <p>Seu horário foi reservado com sucesso. Você receberá a confirmação pelo WhatsApp.</p>
+          <div class="success-details" id="successDetails"></div>
+          <button type="button" class="primary-btn" id="newBooking">Fazer outro agendamento</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="patient-info-grid">
+      <article><span>⌖</span><div><b>Clínica Sorriso</b><p>Av. Principal, 120 — Centro</p></div></article>
+      <article><span>◷</span><div><b>Atendimento</b><p>Seg a sex · 08h às 18h</p></div></article>
+      <article><span>◉</span><div><b>Dúvidas?</b><p>Fale conosco pelo WhatsApp</p></div></article>
+    </section>
+  </main>
+  <script src="patient.js"></script>
+</body>
+</html>
